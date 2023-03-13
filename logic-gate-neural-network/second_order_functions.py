@@ -12,3 +12,8 @@ def produce_outputs_and_end_error(single_piece_of_gate_data,weights):
     outputs.remove(outputs[0])
     error.remove(error[0])
     return outputs,error
+
+def back_propagate_error(error,weights):
+    for back_prop_index in range(0,len(error)-1):
+        error[len(error)-2-back_prop_index] = f.error_back_prop_matrix(f.transpose_matrix(weights[-(back_prop_index+1)]),error[-(back_prop_index+1)])
+    return error

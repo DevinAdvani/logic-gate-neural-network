@@ -8,17 +8,12 @@ def logic_gate_neural_network(dataset,number_of_hidden_layers):
     number_of_inputs, number_of_outputs = f.analyse_gate(GATE)
 
     weights = f.createweights(number_of_inputs,number_of_outputs,number_of_hidden_layers)
-    transpose_weights = f.transpose_matrices(weights)
+    weights = [[[(0.3+0.56j), (0.53+0.54j)], [(0.58+0.59j), (0.55+0.51j)]],[[(0.3+0.56j), (0.53+0.54j)], [(0.58+0.59j), (0.55+0.51j)]],[[(0.3+0.56j), (0.53+0.54j)], [(0.58+0.59j), (0.55+0.51j)]], [[(0.15+0.35j), (0.45+0.65j)]]]
 
     for GATE_INDEX in GATE:
         outputs,error = s.produce_outputs_and_end_error(GATE_INDEX,weights)
-        """
-        print("o",outputs,"e",error,"w",weights)
-        print("space")
-        """
-        print(weights[1])
-        print(error[1])
-        print(f.error_back_prop_matrix(f.transpose_matrix([[(0.6+0.2j), (0.1+0.9j)]]),error[1]))
-        break
+        error = s.back_propagate_error(error,weights)
+        print(error)
+
         
-logic_gate_neural_network(GATE,1)
+logic_gate_neural_network(GATE,3)

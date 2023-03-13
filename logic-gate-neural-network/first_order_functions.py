@@ -83,6 +83,8 @@ def transpose_matrices(matrices):
     return output 
 
 def single_error_back_prop(singular_weight,error_at_k):
+    if isinstance(error_at_k,list):
+        error_at_k = error_at_k[0]
     error_at_j = singular_weight.imag * (1 - 2 * singular_weight.real) * error_at_k
     return error_at_j
 
