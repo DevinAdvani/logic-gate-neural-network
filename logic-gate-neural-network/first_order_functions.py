@@ -63,10 +63,6 @@ def analyse_gate(gate):
     num_of_outputs = len(gate[0][1])
     return num_of_inputs, num_of_outputs
 
-def single_error_back_prop(singular_weight,error_at_k):
-    error_at_j = singular_weight.imag * (1 - 2 * singular_weight.real) * error_at_k
-    return error_at_j
-
 def transpose_matrix(matrix):
     number_of_rows = len(matrix)
     number_of_columns = len(matrix[0])
@@ -86,8 +82,22 @@ def transpose_matrices(matrices):
         output.append(transpose_matrix(matrices[k]))
     return output 
 
-def error_back_prop_matrix(weights_matrix,error_column_vector):
-    pass
+def single_error_back_prop(singular_weight,error_at_k):
+    error_at_j = singular_weight.imag * (1 - 2 * singular_weight.real) * error_at_k
+    return error_at_j
+
+def error_back_prop_matrix(transposed_weights_matrix,error_column_vector):
+    output = []
+    amount_of_i = len(transposed_weights_matrix)
+    amount_of_k = len(transposed_weights_matrix[0])
+    for i in range(0,amount_of_i):
+        sum = 0
+        for k in range(0,amount_of_k):
+            sum += single_error_back_prop(transposed_weights_matrix[i][k],error_column_vector[k])
+        output.append([sum])
+    return output
+    
+print(error_back_prop_matrix([[1+1j],[0.7+0.5j]],[0.5]))    
 
 def change_in_imaginary_weight(learning_rate,error_at_k):
     if -error_at_k > 0:
