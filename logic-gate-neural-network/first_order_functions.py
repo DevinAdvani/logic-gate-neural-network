@@ -52,6 +52,12 @@ def copy_list_form(list_to_be_copied):
         copy.append(create_list_of_zeros_of_length_n(len(list_to_be_copied[i])))
     return copy
 
+def copy_matrices_form(matrices_to_be_copied):
+    copy = []
+    for i in range(0,len(matrices_to_be_copied)):
+        copy.append(copy_list_form(matrices_to_be_copied[i]))
+    return copy
+
 def minus_one_list_from_another(A,B):# A - B
     output = []
     for i in range(0,len(A)):

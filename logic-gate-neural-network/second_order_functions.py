@@ -9,7 +9,7 @@ def produce_outputs_and_end_error(single_piece_of_gate_data,weights):
     error = f.copy_list_form(outputs)
     final_output = outputs[-1]
     error[-1] = f.minus_one_list_from_another(final_output,expected)
-    outputs.remove(outputs[0])
+    outputs.remove(outputs[-1])
     error.remove(error[0])
     return outputs,error
 
