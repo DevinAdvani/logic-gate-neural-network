@@ -113,3 +113,4 @@ def change_in_real_weight(input,learning_rate,error_at_k):
     
 def change_in_weight(input,learning_rate,error_at_k):
     return change_in_real_weight(input,learning_rate,error_at_k) + 1j * change_in_imaginary_weight(learning_rate,error_at_k)
+
