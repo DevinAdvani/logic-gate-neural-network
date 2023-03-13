@@ -97,8 +97,6 @@ def error_back_prop_matrix(transposed_weights_matrix,error_column_vector):
         output.append([sum])
     return output
     
-print(error_back_prop_matrix([[1+1j],[0.7+0.5j]],[0.5]))    
-
 def change_in_imaginary_weight(learning_rate,error_at_k):
     if -error_at_k > 0:
         return learning_rate

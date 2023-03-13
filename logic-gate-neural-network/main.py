@@ -12,9 +12,13 @@ def logic_gate_neural_network(dataset,number_of_hidden_layers):
 
     for GATE_INDEX in GATE:
         outputs,error = s.produce_outputs_and_end_error(GATE_INDEX,weights)
+        """
         print("o",outputs,"e",error,"w",weights)
         print("space")
-        for back_prop_index in range(len(weights)-1,0,-1):
-            print(back_prop_index)
+        """
+        print(weights[1])
+        print(error[1])
+        print(f.error_back_prop_matrix(f.transpose_matrix([[(0.6+0.2j), (0.1+0.9j)]]),error[1]))
+        break
         
-logic_gate_neural_network(GATE,0)
+logic_gate_neural_network(GATE,1)
