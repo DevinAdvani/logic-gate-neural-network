@@ -67,7 +67,23 @@ def single_error_back_prop(singular_weight,error_at_k):
     error_at_j = singular_weight.imag * (1 - 2 * singular_weight.real) * error_at_k
     return error_at_j
 
-def error_back_prop_matrix():
+def transpose_matrix(matrix):
+    number_of_rows = len(matrix)
+    number_of_columns = len(matrix[0])
+    new_number_of_rows = number_of_columns
+    new_number_of_columns = number_of_rows
+    matrix_t = []
+    for i in range(0,new_number_of_rows):
+        row = []
+        for j in range(0,new_number_of_columns):
+            row.append(matrix[j][i])
+        matrix_t.append(row)
+    return matrix_t
+        
+def transpose_matrices(matrices):
+    pass    
+
+def error_back_prop_matrix(weights_matrix,error_column_vector):
     pass
 
 def change_in_imaginary_weight(learning_rate,error_at_k):
