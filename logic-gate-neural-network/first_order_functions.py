@@ -67,7 +67,8 @@ def single_error_back_prop(singular_weight,error_at_k):
     error_at_j = singular_weight.imag * (1 - 2 * singular_weight.real) * error_at_k
     return error_at_j
 
-def error_back_prop_matrix()
+def error_back_prop_matrix():
+    pass
 
 def change_in_imaginary_weight(learning_rate,error_at_k):
     if -error_at_k > 0:
