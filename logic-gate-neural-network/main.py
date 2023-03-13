@@ -4,7 +4,7 @@ import datasets as d
 
 GATE = d.ORGATE
 
-def logic_gate_neural_network(dataset,number_of_hidden_layers,number_of_repeats):
+def logic_gate_neural_network(dataset,number_of_hidden_layers,number_of_repeats,learning_rate):
     number_of_inputs, number_of_outputs = f.analyse_gate(GATE)
 
     weights = f.createweights(number_of_inputs,number_of_outputs,number_of_hidden_layers)
@@ -22,8 +22,9 @@ def logic_gate_neural_network(dataset,number_of_hidden_layers,number_of_repeats)
             for matrix_index in range(0,len(weights)):
                 for matrix_row_index in range(0,len(weights[matrix_index])):
                     for matrix_column_index in range(0,len(weights[matrix_index][matrix_row_index])):
-                        pass
+                        change[matrix_index][matrix_row_index][matrix_column_index] = f.change_in_weight(outputs[matrix_index][matrix_column_index],learning_rate,error[matrix_index][matrix_row_index])
+            print(change)
             break
 
         
-logic_gate_neural_network(GATE,3,1)
+logic_gate_neural_network(GATE,0,1,0.01)

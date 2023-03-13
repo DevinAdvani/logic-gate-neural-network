@@ -118,5 +118,7 @@ def change_in_real_weight(input,learning_rate,error_at_k):
         return -learning_rate
     
 def change_in_weight(input,learning_rate,error_at_k):
+    if isinstance(error_at_k,list):
+        error_at_k = error_at_k[0]
     return change_in_real_weight(input,learning_rate,error_at_k) + 1j * change_in_imaginary_weight(learning_rate,error_at_k)
 
