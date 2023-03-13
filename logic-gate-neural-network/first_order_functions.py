@@ -81,7 +81,10 @@ def transpose_matrix(matrix):
     return matrix_t
         
 def transpose_matrices(matrices):
-    pass    
+    output = []
+    for k in range(0,len(matrices)):
+        output.append(transpose_matrix(matrices[k]))
+    return output 
 
 def error_back_prop_matrix(weights_matrix,error_column_vector):
     pass
