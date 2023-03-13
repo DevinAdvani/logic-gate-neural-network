@@ -17,3 +17,5 @@ def logic_gate_neural_network(dataset,number_of_hidden_layers):
             print(back_prop_index)
         
 logic_gate_neural_network(GATE,1)
+
+"hey"
